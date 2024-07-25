@@ -12,10 +12,10 @@
     "scripts": {
         "build": "turbo run build",
         "build-force": "pnpm clean && turbo run build --force",
-        "dev": "turbo run dev --parallel",
+        "dev": "NODE_OPTIONS='--max-old-space-size=8192' turbo run dev --parallel",
         "start": "run-script-os",
         "start:windows": "cd packages/server/bin && run start",
-        "start:default": "cd packages/server/bin && ./run start",
+        "start:default": "cd packages/server/bin && NODE_OPTIONS='--max-old-space-size=8192' ./run start",
         "clean": "pnpm --filter \"./packages/**\" clean",
         "nuke": "pnpm --filter \"./packages/**\" nuke && rimraf node_modules .turbo",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
